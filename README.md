@@ -10,11 +10,13 @@ This project simulates the modernization of a multi-site enterprise infrastructu
 
 | VM | Role | Operating System | IP Address | Status |
 |---|---|---|---|---|
-| DC01 | Active Directory / DNS | Windows Server 2022 | 192.168.2.10 | Active |
-| FS01 | File Server / Shared folders | Windows Server 2022 | 192.168.2.20 | Active |
-| WAZUH01 | SIEM / Monitoring | Debian 12 | 192.168.2.30 | Active |
-| DB01 | PostgreSQL Database Server | Debian 12 | 192.168.2.40 | Active |
-| APP01 | Flask / Nginx Application Server | Debian 12 | 192.168.2.50 | Active |
+| DC01 | Active Directory / DNS | Windows Server 2022 | 192.168.10.10 | Active |
+| FS01 | File Server / Shared folders | Windows Server 2022 | 192.168.10.20 | Active |
+| WAZUH01 | SIEM / Monitoring | Debian 12 | 192.168.10.30 | Active |
+| DB01 | PostgreSQL Database Server | Debian 12 | 192.168.10.40 | Active |
+| APP01 | Flask / Nginx Application Server | Debian 12 | 192.168.10.50 | Active |
+| KALI | Offensive security workstation | Kali Linux | 192.168.10.60 | Active |
+| OPNsense | Firewall / Gateway | FreeBSD / OPNsense | 192.168.10.1 | Active |
 
 ---
 
@@ -23,6 +25,8 @@ This project simulates the modernization of a multi-site enterprise infrastructu
 - VMware Workstation
 - Windows Server 2022
 - Debian 12
+- Kali Linux
+- OPNsense Firewall
 - Active Directory
 - Wazuh SIEM
 - Sysmon
@@ -32,6 +36,7 @@ This project simulates the modernization of a multi-site enterprise infrastructu
 - RBAC permissions
 - Centralized logging
 - Linux & Windows monitoring
+- MITRE ATT&CK mapping
 
 ---
 
@@ -54,6 +59,9 @@ This project simulates the modernization of a multi-site enterprise infrastructu
 - Security event monitoring
 - MITRE ATT&CK mapping
 - CIS benchmark visibility
+- Reconnaissance detection
+- Web attack detection
+- Agent health monitoring
 
 ### Database Infrastructure
 
@@ -61,6 +69,7 @@ This project simulates the modernization of a multi-site enterprise infrastructu
 - Database initialization
 - Remote application connectivity
 - SQL service monitoring
+- PostgreSQL exposure analysis with Nmap NSE scripts
 
 ### Application Server
 
@@ -68,6 +77,39 @@ This project simulates the modernization of a multi-site enterprise infrastructu
 - Python Flask application
 - Application-to-database communication
 - Linux monitoring with Wazuh
+- Web attack simulation
+
+### Firewall & Network Monitoring
+
+- OPNsense deployment
+- Centralized firewall logging
+- LAN/WAN segmentation
+- Live traffic monitoring
+- Syslog forwarding tests
+- Firewall event visibility through Wazuh
+
+---
+
+## Offensive Security Simulations
+
+Current attack simulations performed from Kali Linux:
+
+```bash
+nmap -A 192.168.10.50
+nmap -sV --script vuln 192.168.10.40
+nikto -h http://192.168.10.50
+```
+
+Detected behaviors:
+
+- Active scanning
+- Web reconnaissance
+- HTTP 400 error bursts
+- XSS attempts
+- SQL injection attempts
+- Shellshock attempts
+- Suspicious URL access
+- Vulnerability scanning
 
 ---
 
@@ -81,6 +123,15 @@ Current detection capabilities:
 - Linux server registration monitoring
 - Multi-agent monitoring through Wazuh
 - Security event centralization
+- Nmap reconnaissance detection
+- Web attack correlation
+- MITRE ATT&CK classification
+
+Observed MITRE ATT&CK mapping:
+
+| Technique | Description |
+|---|---|
+| T1595.002 | Active Scanning |
 
 ---
 
@@ -92,53 +143,80 @@ Nova-Syndicate-SOC/
 |-- README.md
 |-- architecture/
 |-- docs/
+|-- docs/attack-scenarios/
 |-- wazuh/
 |-- active-directory/
 |-- db01-postgresql/
 |-- app01-flask/
 |-- scripts/
 |-- screenshots/
+|-- reports/
 ```
 
 ---
 
 ## Screenshots Included
 
-- Active Directory OU structure
-- Wazuh dashboard
+- Wazuh security events
+- MITRE ATT&CK detections
+- OPNsense live firewall logs
+- Nmap reconnaissance scans
 - Wazuh agents status
+- PostgreSQL exposure analysis
 - Flask application deployment
-- PostgreSQL database creation
-- Database connectivity tests
-- Windows monitoring events
-- File server permissions
+- Active Directory structure
+
+---
+
+## Reports & Evidence
+
+Included evidence:
+
+- Wazuh MITRE ATT&CK report
+- Reconnaissance detection screenshots
+- Firewall live monitoring screenshots
+- Nmap scan outputs
+- Web attack detections
+
+The exported Wazuh report contains:
+
+- reconnaissance detections,
+- privilege escalation alerts,
+- defense evasion detections,
+- discovery activity,
+- vulnerability scanning telemetry,
+- SQL injection attempts,
+- XSS attempts,
+- Shellshock detections.
 
 ---
 
 ## Next Steps
 
 - Full Flask ↔ PostgreSQL integration
-- Incident simulation scenarios
-- Kali Linux attack simulations
-- Detection rules improvement
-- Backup procedures
+- SSH brute-force detection scenarios
 - Sigma rules integration
-- Network segmentation expansion
+- Custom Wazuh detection rules
 - SOC playbooks documentation
+- Network segmentation hardening
+- Active Directory attack simulations
+- Sysmon advanced telemetry
+- Threat hunting dashboards
 
 ---
 
 ## Documentation
 
-The repository includes a full technical architecture document describing:
+The repository includes technical documentation covering:
 
-- Enterprise context and constraints
-- Infrastructure modernization strategy
-- VLAN segmentation
-- Virtualization architecture
-- Security monitoring strategy
-- PRA / PCA objectives
-- Wazuh supervision architecture
+- Enterprise SOC architecture
+- VMware virtual networking
+- Wazuh deployment
+- OPNsense firewall configuration
+- MITRE ATT&CK mapping
+- Centralized monitoring strategy
+- Incident simulation scenarios
+- Attack detection workflows
 
 ---
 
