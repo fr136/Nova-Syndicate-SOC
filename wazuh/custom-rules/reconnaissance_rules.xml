@@ -1,0 +1,29 @@
+<group name="custom_reconnaissance_rules">
+
+  <rule id="100500" level="10">
+    <if_group>web</if_group>
+    <match>400</match>
+    <description>Possible reconnaissance activity detected through repeated HTTP 400 responses</description>
+    <mitre>
+      <id>T1595.002</id>
+    </mitre>
+  </rule>
+
+  <rule id="100501" level="12">
+    <match>nmap</match>
+    <description>Nmap reconnaissance activity detected</description>
+    <mitre>
+      <id>T1046</id>
+    </mitre>
+  </rule>
+
+  <rule id="100502" level="8">
+    <match>enum4linux</match>
+    <description>Active Directory enumeration activity detected</description>
+    <mitre>
+      <id>T1018</id>
+      <id>T1087</id>
+    </mitre>
+  </rule>
+
+</group>
