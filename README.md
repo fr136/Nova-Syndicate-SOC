@@ -1,226 +1,111 @@
-# Nova Syndicate SOC
+# AI Governance Toolkit
 
-Enterprise SOC / Blue Team homelab built with VMware, Wazuh SIEM, Active Directory, PostgreSQL and Flask applications.
+Practical governance framework for managing the risks, compliance obligations and security challenges associated with Generative AI.
 
-This project simulates the modernization of a multi-site enterprise infrastructure with centralized monitoring, authentication management, database services and security supervision.
+## Overview
 
----
+This repository is designed as a GRC and Assistant RSSI portfolio project.
 
-## Infrastructure Overview
+The objective is to provide practical documentation, templates and governance material helping organizations deploy AI technologies while maintaining control over security, compliance and operational risks.
 
-| VM | Role | Operating System | IP Address | Status |
-|---|---|---|---|---|
-| DC01 | Active Directory / DNS | Windows Server 2022 | 192.168.10.10 | Active |
-| FS01 | File Server / Shared folders | Windows Server 2022 | 192.168.10.20 | Active |
-| WAZUH01 | SIEM / Monitoring | Debian 12 | 192.168.10.30 | Active |
-| DB01 | PostgreSQL Database Server | Debian 12 | 192.168.10.40 | Active |
-| APP01 | Flask / Nginx Application Server | Debian 12 | 192.168.10.50 | Active |
-| KALI | Offensive security workstation | Kali Linux | 192.168.10.60 | Active |
-| OPNsense | Firewall / Gateway | FreeBSD / OPNsense | 192.168.10.1 | Active |
+## Project Scope
 
----
-
-## Technologies
-
-- VMware Workstation
-- Windows Server 2022
-- Debian 12
-- Kali Linux
-- OPNsense Firewall
-- Active Directory
-- Wazuh SIEM
-- Sysmon
-- PostgreSQL
-- Python Flask
-- Nginx
-- RBAC permissions
-- Centralized logging
-- Linux & Windows monitoring
-- MITRE ATT&CK mapping
-
----
-
-## Implemented Features
-
-### Active Directory
-
-- Domain deployment
-- Organizational Units
-- User management
-- Authentication monitoring
-- Shared folders with RBAC permissions
-
-### Wazuh SIEM
-
-- Windows and Linux agents deployment
-- Centralized log collection
-- Authentication event visibility
-- Sysmon integration
-- Security event monitoring
-- MITRE ATT&CK mapping
-- CIS benchmark visibility
-- Reconnaissance detection
-- Web attack detection
-- Agent health monitoring
-
-### Database Infrastructure
-
-- PostgreSQL deployment
-- Database initialization
-- Remote application connectivity
-- SQL service monitoring
-- PostgreSQL exposure analysis with Nmap NSE scripts
-
-### Application Server
-
-- Nginx deployment
-- Python Flask application
-- Application-to-database communication
-- Linux monitoring with Wazuh
-- Web attack simulation
-
-### Firewall & Network Monitoring
-
-- OPNsense deployment
-- Centralized firewall logging
-- LAN/WAN segmentation
-- Live traffic monitoring
-- Syslog forwarding tests
-- Firewall event visibility through Wazuh
-
----
-
-## Offensive Security Simulations
-
-Current attack simulations performed from Kali Linux:
-
-```bash
-nmap -A 192.168.10.50
-nmap -sV --script vuln 192.168.10.40
-nikto -h http://192.168.10.50
-```
-
-Detected behaviors:
-
-- Active scanning
-- Web reconnaissance
-- HTTP 400 error bursts
-- XSS attempts
-- SQL injection attempts
-- Shellshock attempts
-- Suspicious URL access
-- Vulnerability scanning
-
----
-
-## Security Monitoring
-
-Current detection capabilities:
-
-- Failed Windows logons
-- Successful Windows authentication events
-- Sysmon process creation events
-- Linux server registration monitoring
-- Multi-agent monitoring through Wazuh
-- Security event centralization
-- Nmap reconnaissance detection
-- Web attack correlation
-- MITRE ATT&CK classification
-
-Observed MITRE ATT&CK mapping:
-
-| Technique | Description |
-|---|---|
-| T1595.002 | Active Scanning |
-
----
+- AI governance
+- Risk management
+- Security policies
+- Compliance mapping
+- Employee awareness
+- Incident response
+- Supplier assessment
 
 ## Repository Structure
 
 ```text
-Nova-Syndicate-SOC/
-|
-|-- README.md
-|-- architecture/
-|-- docs/
-|-- docs/attack-scenarios/
-|-- wazuh/
-|-- active-directory/
-|-- db01-postgresql/
-|-- app01-flask/
-|-- scripts/
-|-- screenshots/
-|-- reports/
+AI-Governance-Toolkit
+├── governance
+│   ├── governance-model.md
+│   ├── roles-responsibilities.md
+│   └── ai-steering-committee.md
+│
+├── policies
+│   ├── ai-usage-policy.md
+│   ├── prompt-security-policy.md
+│   └── human-validation-policy.md
+│
+├── risk-management
+│   ├── ai-risk-register.md
+│   ├── ai-risk-matrix.md
+│   └── risk-treatment-plan.md
+│
+├── compliance
+│   ├── ai-act-checklist.md
+│   ├── gdpr-checklist.md
+│   └── supplier-assessment.md
+│
+├── incidents
+│   └── ai-incident-response.md
+│
+├── awareness
+│   └── employee-guide.md
+│
+└── templates
+    ├── risk-template.md
+    ├── incident-template.md
+    └── assessment-template.md
 ```
 
----
+## Main Deliverables
 
-## Screenshots Included
+- AI Usage Policy
+- Prompt Security Policy
+- Human Validation Policy
+- AI Risk Register
+- AI Risk Matrix
+- Risk Treatment Plan
+- AI Act Checklist
+- GDPR Checklist
+- Supplier Assessment Framework
+- AI Incident Response Procedure
+- Employee Awareness Guide
 
-- Wazuh security events
-- MITRE ATT&CK detections
-- OPNsense live firewall logs
-- Nmap reconnaissance scans
-- Wazuh agents status
-- PostgreSQL exposure analysis
-- Flask application deployment
-- Active Directory structure
+## Core Risks Addressed
 
----
+- Confidential data leakage through prompts
+- Personal data processing without legal basis
+- Uncontrolled shadow AI usage
+- Overreliance on unverified AI-generated outputs
+- Lack of human validation
+- Lack of traceability
+- Third-party AI supplier risk
+- Regulatory non-compliance
+- Bias, hallucination and misuse in decision support
 
-## Reports & Evidence
+## Target Audience
 
-Included evidence:
+- RSSI / CISO teams
+- GRC analysts
+- Risk managers
+- Compliance officers
+- IT managers
+- Security consultants
 
-- Wazuh MITRE ATT&CK report
-- Reconnaissance detection screenshots
-- Firewall live monitoring screenshots
-- Nmap scan outputs
-- Web attack detections
+## Reference Frameworks
 
-The exported Wazuh report contains:
+- NIST AI Risk Management Framework
+- ISO/IEC 27001 security governance principles
+- GDPR principles
+- EU AI Act principles
+- Internal control and operational risk management practices
 
-- reconnaissance detections,
-- privilege escalation alerts,
-- defense evasion detections,
-- discovery activity,
-- vulnerability scanning telemetry,
-- SQL injection attempts,
-- XSS attempts,
-- Shellshock detections.
+## Disclaimer
 
----
+This project is a portfolio and learning project. It does not replace a legal, regulatory or formal security audit.
 
-## Next Steps
+## Status
 
-- Full Flask ↔ PostgreSQL integration
-- SSH brute-force detection scenarios
-- Sigma rules integration
-- Custom Wazuh detection rules
-- SOC playbooks documentation
-- Network segmentation hardening
-- Active Directory attack simulations
-- Sysmon advanced telemetry
-- Threat hunting dashboards
-
----
-
-## Documentation
-
-The repository includes technical documentation covering:
-
-- Enterprise SOC architecture
-- VMware virtual networking
-- Wazuh deployment
-- OPNsense firewall configuration
-- MITRE ATT&CK mapping
-- Centralized monitoring strategy
-- Incident simulation scenarios
-- Attack detection workflows
-
----
+Work in progress.
 
 ## Author
 
 Franck Rouane  
-Junior Cybersecurity Analyst | SOC | Blue Team | Infrastructure Security
+Cybersecurity learner focused on GRC, AI governance, healthcare security and risk management.
